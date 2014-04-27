@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_marginLeft="2dp"
+        android:scaleType="centerInside"
+        android:id="@+id/flag"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_launcher_"/>
+
+    <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/text1"
+        android:layout_margin="2dp"
+        android:textSize="16sp"
+        android:text="dsd"
+        android:paddingLeft="2dp"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        />
+
+</LinearLayout>

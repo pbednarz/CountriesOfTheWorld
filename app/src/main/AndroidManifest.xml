@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pl.solaris.countries" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="pl.solaris.countries.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="pl.solaris.countries.activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Countries" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="pl.solaris.countries.activities.ContinentDetails"
+            android:label="@string/title_activity_continent_details"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="pl.solaris.countries.activities.AtlasActivity"
+            android:label="@string/title_activity_atlas"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="pl.solaris.countries.activities.AboutActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="pl.solaris.countries.activities.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_web_view" >
+        </activity>
+    </application>
+
+</manifest>
