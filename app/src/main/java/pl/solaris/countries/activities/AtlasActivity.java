@@ -34,7 +34,6 @@ public class AtlasActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         // Hide the window title.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_atlas);
         imageSurfaceView = (ImageSurfaceView) findViewById(R.id.worldview);

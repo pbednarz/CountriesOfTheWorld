@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cengalabs.flatui.views.FlatButton;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.UnsupportedEncodingException;
@@ -53,24 +55,51 @@ public class CountryFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root =  inflater.inflate(R.layout.fragment_country, container, false);
-        ((TextView) root.findViewById(R.id.name)).setText(country.getCountryName());
-        ((TextView) root.findViewById(R.id.languages)).setText(country.getLanguages());
-        ((TextView) root.findViewById(R.id.currency)).setText(country.getCurrencyCode());
-        ((TextView) root.findViewById(R.id.population)).setText(country.getPopulation());
-        ((TextView) root.findViewById(R.id.area)).setText(country.getAreaInSqKm());
-        ((TextView) root.findViewById(R.id.wikipedia)).setOnClickListener(new View.OnClickListener() {
+
+        if(country.getCountryName()!=null && !country.getCountryName().equals(""))
+            ((TextView) root.findViewById(R.id.name)).setText(country.getCountryName());
+        else
+            ((TextView) root.findViewById(R.id.name)).setVisibility(View.GONE);
+
+        if(country.getLanguages()!=null && !country.getLanguages().equals(""))
+            ((TextView) root.findViewById(R.id.languages)).setText("Languages: "+country.getLanguages());
+        else
+            ((TextView) root.findViewById(R.id.languages)).setVisibility(View.GONE);
+
+        if(country.getCurrencyCode()!=null && !country.getCountryCode().equals(""))
+            ((TextView) root.findViewById(R.id.currency)).setText("Currency: "+country.getCurrencyCode());
+        else
+            ((TextView) root.findViewById(R.id.currency)).setVisibility(View.GONE);
+
+        if(country.getPopulation()!=null && !country.getPopulation().equals("") && !country.getPopulation().equals("0"))
+            ((TextView) root.findViewById(R.id.population)).setText("Population: "+country.getPopulation());
+        else
+            ((TextView) root.findViewById(R.id.population)).setVisibility(View.GONE);
+
+        if(country.getAreaInSqKm()!=null && !country.getAreaInSqKm().equals("") && !country.getAreaInSqKm().equals("0"))
+            ((TextView) root.findViewById(R.id.area)).setText(Html.fromHtml("Area: "+country.getAreaInSqKm()+" km<sup>2</sup>"));
+        else
+            ((TextView) root.findViewById(R.id.area)).setVisibility(View.GONE);
+
+
+        ((FlatButton) root.findViewById(R.id.wikipedia)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(activity, WebViewActivity.class);
                 try {
-                    i.putExtra("url", Utils.WIKIPEDIA_URL+ URLEncoder.encode(country.getCountryName(), "UTF-8"));
+                    i.putExtra("country", country.getCountryName());
+                    i.putExtra("url", Utils.WIKIPEDIA_URL + URLEncoder.encode(country.getCountryName(), "UTF-8"));
                     startActivity(i);
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }
         });
-        ((TextView) root.findViewById(R.id.capital)).setText(country.getCapital());
+
+        if(country.getCapital()!=null && !country.getCapital().equals(""))
+            ((TextView) root.findViewById(R.id.capital)).setText("Capital: "+country.getCapital());
+        else
+            ((TextView) root.findViewById(R.id.capital)).setVisibility(View.GONE);
         ImageLoader.getInstance().displayImage(Utils.FLAG_NORMAL_URL+country.getCountryCode().toLowerCase()+".png", ((ImageView) root.findViewById(R.id.flag)));
         return root;
     }

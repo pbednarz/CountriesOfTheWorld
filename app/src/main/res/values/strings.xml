@@ -10,9 +10,12 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_about">AboutActivity</string>
-    <string name="app_description">\nWelcome to My Cracow, the application guide for Cracow - Poland’s capital of tourism.
-\n\nCracow is the second largest and one of the oldest cities in Poland. Situated on the Vistula River in the Lesser Poland region, the city dates back to the 7th century. Cracow has traditionally been one of the leading centres of Polish academic, cultural, and artistic life and is one of Poland\'s most important economic hubs.
-\n[http://en.wikipedia.org/wiki/Krakow]</string>
+    <string name="app_description">\nWelcome to Countries of the World, the application guide for countries and continents around the world.
+\n\nLearn about the countries of the world: capitals, populations, languages, areas, flags and more.
+\n\nSources of information:
+\nGeoNames - http://www.geonames.org
+\nWikipedia - http://en.wikipedia.org
+\nVector World Map - http://www.vectorworldmap.com</string>
     <string name="contact">    Please contact the author via e-mail: \nsolaris.bed@gmail.com</string>
     <string name="title_activity_web_view">WebViewActivity</string>
 
